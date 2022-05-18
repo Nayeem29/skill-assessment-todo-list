@@ -5,15 +5,18 @@ import ListRow from './ListRow';
 
 const MyTask = () => {
 
-  const { data: lists, isLoading, refetch } = useQuery('myList', () => fetch('http://localhost:5000/myList').then(res => res.json()))
+  const { data: lists, isLoading, refetch } = useQuery('myList', () => fetch('https://serene-beyond-66571.herokuapp.com/myList').then(res => res.json()))
+
   if (isLoading) {
     return <Loading />
   }
 
+  refetch();
+
   return (
-    <div className='flex items-center justify-center'>
+    <div className='flex items-center justify-center mt-16'>
       <div class="overflow-x-auto">
-        <table class="table w-auto">
+        <table class="table w-full">
           {/* <!-- head --> */}
           <thead>
             <tr>

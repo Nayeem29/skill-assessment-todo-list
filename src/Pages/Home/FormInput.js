@@ -3,19 +3,20 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const FormInput = () => {
+
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => {
     console.log(data);
-    const task = {
+    const newTask = {
       name: data.name,
       description: data.description
     };
-    fetch('http://localhost:5000/addList', {
+    fetch('https://serene-beyond-66571.herokuapp.com/addList', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify(task)
+      body: JSON.stringify(newTask)
     }).then(res => res.json())
       .then(data => {
         console.log(data)
