@@ -33,7 +33,6 @@ const Register = () => {
   }
   if (error) {
     errorMsg = <p className='text-red-600'>{error?.message}</p>
-    return errorMsg;
   }
 
   return (
@@ -114,9 +113,11 @@ const Register = () => {
               </label>
               <p className='mb-3 font-semibold'>Already have an account?
                 <small className='text-secondary font-semibold'><Link to='/login'> Login</Link></small></p>
-              {
-                error && errorMsg
-              }
+              <small className='mb-2'>
+                {
+                  error && errorMsg
+                }
+              </small>
               <input
                 disabled={errors.password || errors.email || errors.name} type="submit" value="Submit" className="btn" />
             </div>

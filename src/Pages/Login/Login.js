@@ -35,7 +35,6 @@ const Login = () => {
   }
   if (error) {
     errorMsg = <p className='text-red-600'><small>{error?.message}</small></p>
-    return errorMsg;
   }
   return (
     <div className='flex items-center justify-center w-full h-screen'>
@@ -92,9 +91,11 @@ const Login = () => {
               </label>
               <p className='mb-3 font-semibold'>Create New Account
                 <small className='text-secondary font-semibold'><Link to='/signup'> Sign up</Link></small></p>
-              {
-                error && errorMsg
-              }
+              <small className='mb-2'>
+                {
+                  error && errorMsg
+                }
+              </small>
               <input
                 disabled={errors.password || errors.email || errors.name} type="submit" value="Submit" className="btn" />
             </div>
