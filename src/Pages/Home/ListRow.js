@@ -22,9 +22,11 @@ const ListRow = ({ refetch, li, index, }) => {
       <th>{index + 1}</th>
       <td>{name}</td>
       <td>{description}</td>
-      <button
-        onClick={() => deleteTask(_id)}
-        class="btn btn-active btn-ghost">Delete</button>
+      <td>
+        <button
+          onClick={() => deleteTask(_id)}
+          class="btn btn-active btn-ghost">Delete</button>
+      </td>
     </tr>
 
   );
